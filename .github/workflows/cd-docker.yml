@@ -30,9 +30,9 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: '167.172.92.228' #production url: 167.172.92.228:9003
+          host: ${{ secrets.SERVER_IP }} #production url: 167.172.92.228:9003
           username: 'root'
-          password: 'se@2026NPRU'
+          password: ${{ secrets.SERVER_PASSWORD }}
           port: '22'
           script: |
             docker logout ghcr.io
